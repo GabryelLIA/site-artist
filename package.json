@@ -1,0 +1,45 @@
+{
+  "name": "jacques-colas-guerin-portfolio",
+  "version": "1.0.0",
+  "description": "Artist portfolio website for Jacques Colas-Guérin on the Claude Marthe Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npm run watch:css & live-server",
+    "server": "node server.js",
+    "build": "npm run build:css",
+    "build:css": "postcss styles/main.css -o assets/css/main.min.css",
+    "watch:css": "postcss styles/main.css -o assets/css/main.min.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "artist",
+    "gallery",
+    "photography"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0"
+  },
+  "dependencies": {
+    "@alpinejs/persist": "^3.12.0",
+    "alpinejs": "^3.14.9",
+    "express": "^4.21.2",
+    "gsap": "^3.12.7",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "lazysizes": "^5.3.2",
+    "masonry-layout": "^4.2.2",
+    "photoswipe": "^5.4.4"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ]
+}

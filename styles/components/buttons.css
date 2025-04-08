@@ -1,0 +1,159 @@
+/* 
+ * Buttons Component Styles
+ */
+
+/* Base Button Styles */
+.btn,
+button,
+input[type="button"],
+input[type="submit"] {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gray-900);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-400);
+}
+
+/* Tertiary Button (Text Button) */
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.btn-tertiary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.btn-tertiary:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Submit Button (for forms) */
+.submit-btn {
+  background-color: var(--color-gray-900);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  width: 100%;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-primary);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+/* Button Shapes */
+.btn-rounded {
+  border-radius: 50px;
+}
+
+/* Button States */
+.btn:disabled,
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Button with Icon */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-icon i {
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.btn-icon:hover i {
+  transform: translateX(3px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-gray-900);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+  z-index: var(--z-30);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-primary);
+}

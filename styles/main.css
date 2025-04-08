@@ -1,0 +1,233 @@
+/* 
+ * Claude Marthe Portfolio 
+ * Main Stylesheet
+ * Based on the Kyano Studio design
+ */
+
+/* Import Font Styles */
+@import 'utils/variables.css';
+@import 'utils/animations.css';
+@import 'utils/responsive.css';
+
+/* Import Component Styles */
+@import 'components/navigation.css';
+@import 'components/gallery.css';
+@import 'components/buttons.css';
+@import 'components/forms.css';
+@import 'components/lightbox.css';
+@import 'components/photoswipe.css';
+@import 'components/sections.css';
+@import 'components/footer.css';
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/gallery/Peinture Laure (2).jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.scroll-indicator span {
+  margin-bottom: 0.5rem;
+}
+
+.scroll-indicator i {
+  animation: bounce 2s infinite;
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-dark);
+    --color-text: var(--color-light);
+    --color-primary: var(--color-accent);
+  }
+  
+  .logo-dark {
+    display: none;
+  }
+  
+  .logo-light {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .logo-dark {
+    display: block;
+  }
+  
+  .logo-light {
+    display: none;
+  }
+}

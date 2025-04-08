@@ -1,0 +1,222 @@
+/* 
+ * Responsive CSS
+ * Media queries and responsive layout utilities
+ */
+
+/* Responsive Breakpoints
+ * ------------------
+ * xs: 0px    - Extra small devices (portrait phones)
+ * sm: 576px  - Small devices (landscape phones)
+ * md: 768px  - Medium devices (tablets)
+ * lg: 992px  - Large devices (desktops)
+ * xl: 1200px - Extra large devices (large desktops)
+ * xxl: 1400px - Extra extra large devices
+ */
+
+/* Base Mobile-First Styles */
+.container {
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  p.lead {
+    font-size: 1.25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  section {
+    padding: 8rem 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-content {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .contact-form {
+    flex: 2;
+  }
+
+  .contact-info {
+    flex: 1;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .intro-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .intro-content h2,
+  .intro-content p.lead {
+    width: 100%;
+  }
+
+  .intro-details {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .detail {
+    flex: 1;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-header {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: var(--container-max-width);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 575.98px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Responsive Helpers */
+.hide-xs {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .hide-xs {
+    display: initial;
+  }
+  .show-xs {
+    display: none;
+  }
+}
+
+.hide-sm {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-sm {
+    display: initial;
+  }
+  .show-sm {
+    display: none;
+  }
+}
+
+.hide-md {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .hide-md {
+    display: initial;
+  }
+  .show-md {
+    display: none;
+  }
+}
+
+.hide-lg {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .hide-lg {
+    display: initial;
+  }
+  .show-lg {
+    display: none;
+  }
+}
+
+/* Responsive spacing helpers */
+@media (max-width: 575.98px) {
+  section {
+    padding: 4rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .gallery-item {
+    margin-bottom: 1rem;
+  }
+}

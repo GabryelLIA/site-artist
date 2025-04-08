@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Jacques Colas-Guérin Portfolio</title>
+    <meta name="description" content="Explore the complete gallery of works by Jacques Colas-Guérin, featuring photography, digital art, and mixed media pieces">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logos/claude-marthe-logo.svg" alt="Claude Marthe Logo">
+            </a>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Gallery</h1>
+            </div>
+        </section>
+
+        <section class="gallery-content">
+            <div class="container">
+                <div class="gallery-intro">
+                    <p>Explore the complete collection of Jacques Colas-Guérin's work, spanning photography, digital art, and mixed media pieces. Each work represents a unique exploration of form, light, and narrative.</p>
+                </div>
+                
+                <div class="gallery-filter" x-data="{ activeFilter: 'all' }">
+                    <div class="filter-buttons">
+                        <button class="filter-btn" :class="{ active: activeFilter === 'all' }" @click="activeFilter = 'all'">All Works</button>
+                        <button class="filter-btn" :class="{ active: activeFilter === 'photography' }" @click="activeFilter = 'photography'">Photography</button>
+                        <button class="filter-btn" :class="{ active: activeFilter === 'digital' }" @click="activeFilter = 'digital'">Digital Art</button>
+                        <button class="filter-btn" :class="{ active: activeFilter === 'mixed' }" @click="activeFilter = 'mixed'">Mixed Media</button>
+                        <button class="filter-btn" :class="{ active: activeFilter === 'installation' }" @click="activeFilter = 'installation'">Installations</button>
+                    </div>
+                    
+                    <div class="gallery-grid" x-data="{ initMasonry() { 
+                        const grid = this.$el;
+                        const msnry = new Masonry(grid, {
+                            itemSelector: '.gallery-item',
+                            columnWidth: '.gallery-item',
+                            percentPosition: true,
+                            transitionDuration: '0.4s'
+                        });
+                        
+                        // Re-layout Masonry after images load
+                        imagesLoaded(grid).on('progress', function() {
+                            msnry.layout();
+                        });
+                        
+                        // Re-layout when filter changes
+                        this.$watch('activeFilter', () => {
+                            setTimeout(() => {
+                                msnry.layout();
+                            }, 100);
+                        });
+                    } }" x-init="initMasonry()">
+                        <!-- Photography -->
+                        <div class="gallery-item" data-category="photography" x-show="activeFilter === 'all' || activeFilter === 'photography'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/photo-1.jpg" alt="Photography Project 1" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Photography Project 1</h3>
+                                    <p class="gallery-category">Photography</p>
+                                    <p class="gallery-year">2024</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="photography" x-show="activeFilter === 'all' || activeFilter === 'photography'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/photo-2.jpg" alt="Photography Project 2" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Photography Project 2</h3>
+                                    <p class="gallery-category">Photography</p>
+                                    <p class="gallery-year">2023</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="photography" x-show="activeFilter === 'all' || activeFilter === 'photography'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/photo-3.jpg" alt="Photography Project 3" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Photography Project 3</h3>
+                                    <p class="gallery-category">Photography</p>
+                                    <p class="gallery-year">2023</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Digital Art -->
+                        <div class="gallery-item" data-category="digital" x-show="activeFilter === 'all' || activeFilter === 'digital'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/digital-1.jpg" alt="Digital Art Project 1" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Digital Art Project 1</h3>
+                                    <p class="gallery-category">Digital Art</p>
+                                    <p class="gallery-year">2024</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="digital" x-show="activeFilter === 'all' || activeFilter === 'digital'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/digital-2.jpg" alt="Digital Art Project 2" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Digital Art Project 2</h3>
+                                    <p class="gallery-category">Digital Art</p>
+                                    <p class="gallery-year">2023</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="digital" x-show="activeFilter === 'all' || activeFilter === 'digital'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/digital-3.jpg" alt="Digital Art Project 3" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Digital Art Project 3</h3>
+                                    <p class="gallery-category">Digital Art</p>
+                                    <p class="gallery-year">2022</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Mixed Media -->
+                        <div class="gallery-item" data-category="mixed" x-show="activeFilter === 'all' || activeFilter === 'mixed'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/mixed-1.jpg" alt="Mixed Media Project 1" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Mixed Media Project 1</h3>
+                                    <p class="gallery-category">Mixed Media</p>
+                                    <p class="gallery-year">2024</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="mixed" x-show="activeFilter === 'all' || activeFilter === 'mixed'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/mixed-2.jpg" alt="Mixed Media Project 2" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Mixed Media Project 2</h3>
+                                    <p class="gallery-category">Mixed Media</p>
+                                    <p class="gallery-year">2022</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Installations -->
+                        <div class="gallery-item" data-category="installation" x-show="activeFilter === 'all' || activeFilter === 'installation'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/installation-1.jpg" alt="Installation Project 1" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Installation Project 1</h3>
+                                    <p class="gallery-category">Installation</p>
+                                    <p class="gallery-year">2023</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gallery-item" data-category="installation" x-show="activeFilter === 'all' || activeFilter === 'installation'" x-transition>
+                            <a href="project-template.html" class="gallery-link">
+                                <img src="assets/images/gallery/installation-2.jpg" alt="Installation Project 2" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-title">Installation Project 2</h3>
+                                    <p class="gallery-category">Installation</p>
+                                    <p class="gallery-year">2022</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="exhibitions-preview">
+            <div class="container">
+                <h2>Recent Exhibitions</h2>
+                <div class="exhibitions-grid">
+                    <div class="exhibition-item">
+                        <div class="exhibition-image">
+                            <img src="assets/images/gallery/exhibition-1.jpg" alt="Exhibition 1">
+                        </div>
+                        <div class="exhibition-details">
+                            <h3>Exhibition Title 1</h3>
+                            <p class="exhibition-meta">Gallery Name, Location</p>
+                            <p class="exhibition-date">January - March 2024</p>
+                            <p class="exhibition-description">Brief description of the exhibition, highlighting key works and themes explored.</p>
+                        </div>
+                    </div>
+                    <div class="exhibition-item">
+                        <div class="exhibition-image">
+                            <img src="assets/images/gallery/exhibition-2.jpg" alt="Exhibition 2">
+                        </div>
+                        <div class="exhibition-details">
+                            <h3>Exhibition Title 2</h3>
+                            <p class="exhibition-meta">Gallery Name, Location</p>
+                            <p class="exhibition-date">June - August 2023</p>
+                            <p class="exhibition-description">Brief description of the exhibition, highlighting key works and themes explored.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Interested in Purchasing or Exhibiting?</h2>
+                <p>For inquiries about purchasing artwork, prints, or exhibition opportunities, please get in touch.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Jacques</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="assets/images/logos/claude-marthe-logo-white.svg" alt="Claude Marthe Logo" class="footer-logo">
+                    <p>&copy; 2025 Jacques Colas-Guérin. All rights reserved.</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>

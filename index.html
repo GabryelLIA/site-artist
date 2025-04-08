@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Marthe | Portfolio</title>
+    <meta name="description" content="Portfolio showcasing the artwork of Claude Marthe, featuring high-quality Mes Oeuvres and Peintures.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/Logo Claude Marthe Noir.svg" alt="Claude Marthe Logo" class="logo-dark">
+                    <img src="assets/images/logos/Logo Claude Marthe Blanc.svg" alt="Claude Marthe Logo" class="logo-light">
+                </a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span>MENU</span>
+            </div>
+            <div class="nav-overlay" id="nav-overlay">
+                <div class="nav-content">
+                    <div class="close-nav" id="close-nav">
+                        <span>&times;</span>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#aquarelles">Aquarelles</a></li>
+                        <li><a href="#tableaux">Tableaux</a></li>
+                        <li><a href="#sculptures">Sculpture et moulage</a></li>
+                        <li><a href="#tirages">Tirages fine art</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                        <li><a href="#autres">Autres</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>c
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Claude Marthe</h1>
+            <p>Peintre et artiste</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Je vous emmène</span>
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section" id="about">
+        <div class="container">
+            <div class="intro-content">
+                <h2>About the Artist</h2>
+                <p class="lead">Our mission was to capture the artwork of a lifetime for the painter Claude Marthe so as to create high-quality reproductions, an art catalog, and a website portfolio.</p>
+                
+                <div class="intro-details">
+                    <div class="detail">
+                        <h3>INDUSTRY:</h3>
+                        <p>Artist</p>
+                    </div>
+                    <div class="detail">
+                        <h3>WORK COMPLETED:</h3>
+                        <p>Web Design<br>Graphic Design<br>Mes Oeuvres</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Reproductions Section -->
+    <section class="art-section" id="art">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mes Oeuvres</h2>
+                <p>Using our vast experience and specialised equipment we captured the subtle hues and fine details of the originals. This attention to detail is extremely important! Additional steps of the process were: retouching the digital image file in Lightroom, incl. colour matching, dust and scratch removal, global and local adjustments.</p>
+                <p>We struggled a lot during the years to find the right shades of blue and stay as faithful as possible to our original cyanotypes so as artists ourselves we know how difficult it is to create a digital file that's matching your original artwork perfectly.</p>
+                <p>Today we are proud to say that we have the savoir-faire to capture the essence and beauty of an artist's work with great precision and quality.</p>
+            </div>
+            
+            <div x-data="galleryFilter" class="gallery-container">
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="*" @click="setFilter('*')">All</button>
+                    <button class="filter-btn" data-filter="paintings" @click="setFilter('paintings')">Peintures</button>
+                    <button class="filter-btn" data-filter="drawings" @click="setFilter('drawings')">Sculptures</button>
+                    <button class="filter-btn" data-filter="prints" @click="setFilter('prints')">Prints</button>
+                </div>
+                
+                <div class="gallery" id="gallery">
+                <div class="gallery-item paintings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (1).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (1).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item paintings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (2).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (2).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item drawings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (3).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (3).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item drawings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (4).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (4).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item prints">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (5).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (5).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item prints">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (6).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (6).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item paintings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (7).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (7).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item paintings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (8).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (8).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+                <div class="gallery-item drawings">
+                    <a href="#" class="lightbox-trigger" data-image="assets/images/gallery/Peinture Laure (9).jpeg">
+                        <img class="lazyload" data-src="assets/images/gallery/Peinture Laure (9).jpeg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Artwork by Claude Marthe">
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Design Section -->
+    <section class="brand-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Brand Design</h2>
+                <p>Creating a cohesive visual identity that reflects the essence of Claude Marthe's artistic style and vision.</p>
+            </div>
+            
+            <div class="brand-gallery">
+                <div class="brand-item">
+                    <img src="assets/images/gallery/Peinture Laure (10).jpeg" alt="Brand Design for Claude Marthe">
+                </div>
+                <div class="brand-item">
+                    <img src="assets/images/gallery/Peinture Laure (11).jpeg" alt="Brand Design for Claude Marthe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Design Section -->
+    <section class="web-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Web Design</h2>
+                <p>Inspired by the richness and beauty of the artist's work, we created a portfolio website that showcases his art with elegance. We worked with the Wix platform and we teach our clients how to use this platform and be able to modify their website whenever is needed.</p>
+            </div>
+            
+            <div class="web-gallery">
+                <div class="web-item">
+                    <img src="assets/images/gallery/Peinture Laure (12).jpeg" alt="Web Design for Claude Marthe">
+                </div>
+                <div class="web-item">
+                    <img src="assets/images/gallery/Peinture Laure (13).jpeg" alt="Web Design for Claude Marthe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Design Section -->
+    <section class="catalog-section" id="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Catalog Design</h2>
+                <p>A curated collection showcasing the diverse body of work created by Claude Marthe throughout his career.</p>
+            </div>
+            
+            <div class="catalog-gallery">
+                <div class="catalog-item">
+                    <img src="assets/images/gallery/Peinture Laure (14).jpeg" alt="Catalog Design for Claude Marthe">
+                </div>
+                <div class="catalog-item">
+                    <img src="assets/images/gallery/Peinture Laure (15).jpeg" alt="Catalog Design for Claude Marthe">
+                </div>
+                <div class="catalog-item">
+                    <img src="assets/images/gallery/Peinture Laure (16).jpeg" alt="Catalog Design for Claude Marthe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backstage Section -->
+    <section class="backstage-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Backstage</h2>
+                <p>A glimpse behind the scenes of the creative process and the collaboration with Claude Marthe.</p>
+            </div>
+            
+            <div class="backstage-gallery">
+                <div class="backstage-item">
+                    <img src="assets/images/gallery/Peinture Laure (17).jpeg" alt="Backstage with Claude Marthe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Left Column: Menu -->
+                <div class="footer-menu">
+                    <h3>MENU</h3>
+                    <ul>
+                        <li><a href="#home">ACCUEIL</a></li>
+                        <li><a href="#aquarelles">AQUARELLES</a></li>
+                        <li><a href="#tableaux">TABLEAUX</a></li>
+                        <li><a href="#sculptures">SCULPTURE ET MOULAGE</a></li>
+                        <li><a href="#tirages">TIRAGES FINE ART</a></li>
+                        <li><a href="#agenda">AGENDA</a></li>
+                        <li><a href="#autres">AUTRES</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Center Column: Logo -->
+                <div class="footer-logo">
+                    <img src="assets/images/logos/Logo Claude Marthe Bleu.svg" alt="Claude Marthe Logo">
+                </div>
+                
+                <!-- Right Column: Connect + Contact Form -->
+                <div class="footer-connect">
+                    <h3>CONNECT</h3>
+                    
+                    <!-- Social Icons -->
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    
+                    <!-- Simplified Contact Form -->
+                    <form class="footer-contact-form">
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 by Claude Marthe · All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+        </div>
+        <button class="lightbox-next" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="node_modules/alpinejs/dist/cdn.min.js" defer></script>
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <script src="node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
+    <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="node_modules/photoswipe/dist/photoswipe.min.js"></script>
+    <script src="node_modules/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+    <script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="node_modules/lazysizes/lazysizes.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script src="scripts/lightbox.js"></script>
+</body>
+</html>
