@@ -278,6 +278,57 @@
   color: #CCC;
 }
 
+/* Preloader */
+.pswp__preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.pswp__preloader .pswp__preloader__icn {
+  width: 20px;
+  height: 20px;
+  margin: 12px;
+  background: var(--color-border); /* Use border color (sky blue) */
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-animation: pswp-preloader-rotate 0.7s linear infinite;
+  animation: pswp-preloader-rotate 0.7s linear infinite;
+}
+
+@-webkit-keyframes pswp-preloader-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pswp-preloader-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .pswp__caption__center {

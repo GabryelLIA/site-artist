@@ -1,10 +1,11 @@
 /* Footer Styles */
 
 .site-footer {
-    background-color: #fff;
-    padding: 60px 0 20px;
-    color: #495057;
-    border-top: 1px solid #e9ecef;
+    background-color: var(--color-deep-indigo); /* Use deep indigo */
+    color: var(--color-sky-blue); /* Lighter blue for better contrast */
+    padding: 4rem 0 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border); /* Use border variable */
 }
 
 .footer-content {
@@ -20,7 +21,7 @@
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    color: #333;
+    color: var(--color-text); /* Use text variable */
 }
 
 .footer-menu ul {
@@ -35,7 +36,7 @@
 
 .footer-menu a {
     text-decoration: none;
-    color: #6c757d;
+    color: var(--color-bright-cyan); /* Bright cyan for links */
     font-size: 14px;
     transition: color 0.3s ease;
     font-weight: 400;
@@ -43,7 +44,7 @@
 }
 
 .footer-menu a:hover {
-    color: #007bff;
+    color: var(--color-white);
 }
 
 /* Center Column - Logo */
@@ -64,7 +65,7 @@
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    color: #333;
+    color: var(--color-text); /* Use text variable */
 }
 
 /* Social Links */
@@ -80,16 +81,16 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #f8f9fa;
+    background-color: var(--color-gray-100); /* Use a light gray variable */
     border-radius: 50%;
-    color: #495057;
+    color: var(--color-bright-cyan); /* Bright cyan for social links */
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-primary); /* Use primary color variable */
+    color: var(--color-white); /* Use white variable */
     transform: translateY(-3px);
 }
 
@@ -103,10 +104,10 @@
 .footer-contact-form input,
 .footer-contact-form textarea {
     padding: 12px;
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--color-border); /* Use border variable */
     border-radius: 4px;
     font-size: 14px;
-    background-color: #f8f9fa;
+    background-color: var(--color-gray-100); /* Use a light gray variable */
 }
 
 .footer-contact-form textarea {
@@ -115,8 +116,8 @@
 }
 
 .footer-contact-form button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-primary); /* Use primary color variable */
+    color: var(--color-white); /* Use white variable */
     border: none;
     border-radius: 4px;
     padding: 12px;
@@ -127,16 +128,16 @@
 }
 
 .footer-contact-form button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-primary-dark); /* Use primary dark color variable */
 }
 
 /* Copyright */
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--color-border); /* Use border variable */
     font-size: 14px;
-    color: #868e96;
+    color: var(--color-sky-blue); /* Lighter blue for copyright */
 }
 
 /* Responsive Adjustments */

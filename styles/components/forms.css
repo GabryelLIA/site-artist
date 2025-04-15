@@ -42,7 +42,7 @@ textarea {
 
 /* Select Custom Styling */
 select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212121' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230A1C4A' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0 center;
   padding-right: 1.5rem;
@@ -54,7 +54,7 @@ label {
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-gray-700);
+  color: var(--color-sky-blue);
 }
 
 /* Focus States */
@@ -63,13 +63,13 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: 0;
-  border-color: var(--color-primary);
-  box-shadow: 0 1px 0 0 var(--color-primary);
+  border-color: var(--color-bright-cyan);
+  box-shadow: 0 1px 0 0 var(--color-bright-cyan);
 }
 
 /* Placeholder Styling */
 ::placeholder {
-  color: var(--color-gray-400);
+  color: var(--color-sky-blue);
   opacity: 1;
 }
 

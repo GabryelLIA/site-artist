@@ -13,7 +13,7 @@
 }
 
 .site-nav.scrolled {
-  background-color: var(--color-background);
+  background-color: var(--color-deep-indigo);
   padding: 1rem 0;
   box-shadow: var(--shadow-sm);
 }

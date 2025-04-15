@@ -5,6 +5,14 @@
 
 :root {
   /* Colors */
+  /* New Blue/Cyan Palette */
+  --color-deep-indigo: #0A1C4A;
+  --color-royal-blue: #143687;
+  --color-cobalt-blue: #2563B3;
+  --color-sky-blue: #56A7D5;
+  --color-bright-cyan: #7ADAF7;
+
+  /* Base Colors (Keeping Black/White/Grays for utility) */
   --color-black: #000000;
   --color-white: #ffffff;
   --color-light: #f7f7f7;
@@ -18,16 +26,16 @@
   --color-gray-700: #616161;
   --color-gray-800: #424242;
   --color-gray-900: #212121;
-  --color-accent: #aa8a5b; /* Gold accent color */
   
-  /* Functional Colors */
-  --color-background: var(--color-white);
-  --color-text: var(--color-gray-900);
-  --color-primary: var(--color-accent);
-  --color-secondary: var(--color-gray-700);
-  --color-border: var(--color-gray-300);
-  --color-error: #d32f2f;
+  /* Functional Colors - Updated */
+  --color-background: var(--color-white);       /* White background */
+  --color-text: var(--color-deep-indigo);     /* Darkest blue for main text */
+  --color-primary: var(--color-cobalt-blue);    /* Cobalt blue as primary accent */
+  --color-secondary: var(--color-royal-blue);   /* Royal blue for secondary elements */
+  --color-border: var(--color-sky-blue);      /* Sky blue for borders */
+  --color-error: #d32f2f; /* Keeping standard error/success */
   --color-success: #388e3c;
+  --color-primary-dark: var(--color-royal-blue); /* Darker shade for primary hover */
   
   /* Typography */
   --font-primary: 'Inter', sans-serif;
