@@ -20,27 +20,51 @@ document.addEventListener('DOMContentLoaded', function() {
  * Load all gallery images dynamically
  */
 function loadGalleryImages() {
-    // Get the gallery images
+    // Define gallery images with their respective folders
     const galleryImages = [
-        "Peinture Laure (1).jpeg",
-        "Peinture Laure (2).jpeg",
-        "Peinture Laure (3).jpeg",
-        "Peinture Laure (4).jpeg",
-        "Peinture Laure (5).jpeg",
-        "Peinture Laure (6).jpeg",
-        "Peinture Laure (7).jpeg",
-        "Peinture Laure (8).jpeg",
-        "Peinture Laure (9).jpeg",
-        "Peinture Laure (10).jpeg",
-        "Peinture Laure (11).jpeg",
-        "Peinture Laure (12).jpeg",
-        "Peinture Laure (13).jpeg",
-        "Peinture Laure (14).jpeg",
-        "Peinture Laure (15).jpeg",
-        "Peinture Laure (16).jpeg",
-        "Peinture Laure (17).jpeg"
+        { filename: "Peinture Laure (1).jpeg", folder: "vertical-narrow" },
+        { filename: "Peinture Laure (2).jpeg", folder: "vertical-wide" },
+        { filename: "Peinture Laure (3).jpeg", folder: "vertical-narrow" },
+        { filename: "Peinture Laure (4).jpeg", folder: "vertical-narrow" },
+        { filename: "Peinture Laure (5).jpeg", folder: "vertical-wide" },
+        { filename: "Peinture Laure (6).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (7).jpeg", folder: "horizontal-wide" },
+        { filename: "Peinture Laure (8).jpeg", folder: "horizontal-wide" },
+        { filename: "Peinture Laure (9).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (10).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (11).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (12).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (13).jpeg", folder: "horizontal-wide" },
+        { filename: "Peinture Laure (14).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (15).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (16).jpeg", folder: "vertical" },
+        { filename: "Peinture Laure (17).jpeg", folder: "vertical" }
     ];
     
+    // Group images by folder
+    const groups = {
+        'vertical-wide': [],
+        'vertical': [],
+        'horizontal-wide': [],
+        'vertical-narrow': []
+    };
+    galleryImages.forEach(img => {
+        if (groups[img.folder]) groups[img.folder].push(img);
+    });
+
+    // Compose ordered array for rendering
+    let ordered = [];
+    // 1st row: 2 vertical-wide
+    ordered = ordered.concat(groups['vertical-wide'].splice(0,2));
+    // 2nd row: 3 vertical
+    ordered = ordered.concat(groups['vertical'].splice(0,3));
+    // 3rd row: 2 horizontal-wide
+    ordered = ordered.concat(groups['horizontal-wide'].splice(0,2));
+    // 4th+: all remaining vertical
+    ordered = ordered.concat(groups['vertical']);
+    // Last row: 3 vertical-narrow
+    ordered = ordered.concat(groups['vertical-narrow'].splice(0,3));
+
     // Categories for the images (can be randomized or assigned by specific rules)
     const categories = ['paintings', 'drawings', 'prints'];
     
@@ -51,25 +75,25 @@ function loadGalleryImages() {
     gallery.innerHTML = '';
     
     // Add each image to the gallery
-    galleryImages.forEach((image, index) => {
+    ordered.forEach((item, index) => {
         // Assign a category (you can customize this logic)
         const categoryIndex = index % categories.length;
         const category = categories[categoryIndex];
         
         // Create the gallery item
         const galleryItem = document.createElement('div');
-        galleryItem.className = `gallery-item ${category}`;
+        galleryItem.className = `gallery-item ${category} gallery-item--${item.folder}`;
         
         // Create the lightbox trigger link
         const link = document.createElement('a');
         link.href = '#';
         link.className = 'lightbox-trigger';
-        link.setAttribute('data-image', `assets/images/gallery/${image}`);
+        link.setAttribute('data-image', `assets/images/gallery/${item.folder}/${item.filename}`);
         
         // Create the image element
         const img = document.createElement('img');
         img.className = 'lazyload';
-        img.setAttribute('data-src', `assets/images/gallery/${image}`);
+        img.setAttribute('data-src', `assets/images/gallery/${item.folder}/${item.filename}`);
         img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
         img.alt = 'Artwork by Claude Marthe';
         
