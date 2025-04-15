@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Test</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container" style="padding: 40px 0;">
+        <h1 style="text-align: center; margin-bottom: 30px;">Gallery Test</h1>
+        
+        <div x-data="galleryFilter" class="gallery-container">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="*" @click="setFilter('*')">All</button>
+                <button class="filter-btn" data-filter="paintings" @click="setFilter('paintings')">Huile</button>
+                <button class="filter-btn" data-filter="drawings" @click="setFilter('drawings')">Acrylique</button>
+                <button class="filter-btn" data-filter="prints" @click="setFilter('prints')">Techniques mixtes</button>
+            </div>
+            
+            <div class="gallery" id="gallery">
+                <!-- Gallery items will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="node_modules/alpinejs/dist/cdn.min.js" defer></script>
+    <script src="node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
+    <script src="node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="node_modules/lazysizes/lazysizes.min.js"></script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>

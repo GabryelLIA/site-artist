@@ -4,12 +4,81 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize gallery components
-    initMasonryLayout();
-    initIsotopeFiltering();
-    initLazyLoading();
-    initPhotoSwipe();
+    // Load all gallery images first
+    loadGalleryImages();
+    
+    // Then initialize gallery components
+    setTimeout(() => {
+        initMasonryLayout();
+        initIsotopeFiltering();
+        initLazyLoading();
+        initPhotoSwipe();
+    }, 100);
 });
+
+/**
+ * Load all gallery images dynamically
+ */
+function loadGalleryImages() {
+    // Get the gallery images
+    const galleryImages = [
+        "Peinture Laure (1).jpeg",
+        "Peinture Laure (2).jpeg",
+        "Peinture Laure (3).jpeg",
+        "Peinture Laure (4).jpeg",
+        "Peinture Laure (5).jpeg",
+        "Peinture Laure (6).jpeg",
+        "Peinture Laure (7).jpeg",
+        "Peinture Laure (8).jpeg",
+        "Peinture Laure (9).jpeg",
+        "Peinture Laure (10).jpeg",
+        "Peinture Laure (11).jpeg",
+        "Peinture Laure (12).jpeg",
+        "Peinture Laure (13).jpeg",
+        "Peinture Laure (14).jpeg",
+        "Peinture Laure (15).jpeg",
+        "Peinture Laure (16).jpeg",
+        "Peinture Laure (17).jpeg"
+    ];
+    
+    // Categories for the images (can be randomized or assigned by specific rules)
+    const categories = ['paintings', 'drawings', 'prints'];
+    
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+    
+    // Clear existing gallery content to prevent duplicates
+    gallery.innerHTML = '';
+    
+    // Add each image to the gallery
+    galleryImages.forEach((image, index) => {
+        // Assign a category (you can customize this logic)
+        const categoryIndex = index % categories.length;
+        const category = categories[categoryIndex];
+        
+        // Create the gallery item
+        const galleryItem = document.createElement('div');
+        galleryItem.className = `gallery-item ${category}`;
+        
+        // Create the lightbox trigger link
+        const link = document.createElement('a');
+        link.href = '#';
+        link.className = 'lightbox-trigger';
+        link.setAttribute('data-image', `assets/images/gallery/${image}`);
+        
+        // Create the image element
+        const img = document.createElement('img');
+        img.className = 'lazyload';
+        img.setAttribute('data-src', `assets/images/gallery/${image}`);
+        img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+        img.alt = 'Artwork by Claude Marthe';
+        
+        // Assemble the elements
+        link.appendChild(img);
+        galleryItem.appendChild(link);
+        gallery.appendChild(galleryItem);
+    });
+}
 
 /**
  * Initialize Masonry layout
@@ -18,22 +87,33 @@ function initMasonryLayout() {
     const galleries = document.querySelectorAll('.gallery');
     
     galleries.forEach(gallery => {
-        // Initialize ImagesLoaded first to ensure Masonry calculates heights correctly
+        // Initialize ImagesLoaded first to ensure proper display
         imagesLoaded(gallery, function() {
-            // Initialize Masonry
+            // Set up Masonry for the gallery
             const masonryInstance = new Masonry(gallery, {
                 itemSelector: '.gallery-item',
-                columnWidth: '.gallery-item',
                 percentPosition: true,
-                transitionDuration: '0.4s',
-                stagger: 30
+                transitionDuration: '0.3s',
+                gutter: 20
             });
             
             // Reveal gallery after layout is calculated
             gallery.classList.add('is-loaded');
             
-            // Store Masonry instance for future reference
-            gallery.masonryInstance = masonryInstance;
+            // Add animation to gallery items
+            const items = gallery.querySelectorAll('.gallery-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 50 * index);
+            });
+            
+            // Force layout update after a short delay to ensure all images are positioned correctly
+            setTimeout(() => {
+                if (masonryInstance) {
+                    masonryInstance.layout();
+                }
+            }, 500);
         });
     });
 }
@@ -47,36 +127,39 @@ function initIsotopeFiltering() {
     
     galleries.forEach(gallery => {
         if (filterBtns.length > 0) {
-            // Initialize Isotope
-            const iso = new Isotope(gallery, {
-                itemSelector: '.gallery-item',
-                layoutMode: 'fitRows',
-                transitionDuration: '0.4s'
-            });
-            
-            // Filter button click handlers
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Get filter value
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Filter items
-                    iso.arrange({
-                        filter: filterValue === '*' ? null : `.${filterValue}`
+            // Make sure all images are loaded before initializing Isotope
+            imagesLoaded(gallery, function() {
+                // Initialize Isotope
+                const iso = new Isotope(gallery, {
+                    itemSelector: '.gallery-item',
+                    layoutMode: 'fitRows',
+                    transitionDuration: '0.4s'
+                });
+                
+                // Filter button click handlers
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // Get filter value
+                        const filterValue = this.getAttribute('data-filter');
+                        
+                        // Filter items
+                        iso.arrange({
+                            filter: filterValue === '*' ? null : `.${filterValue}`
+                        });
+                        
+                        // Update Masonry layout after filtering
+                        if (gallery.masonryInstance) {
+                            setTimeout(() => {
+                                gallery.masonryInstance.layout();
+                            }, 500);
+                        }
                     });
-                    
-                    // Update Masonry layout after filtering
-                    if (gallery.masonryInstance) {
-                        setTimeout(() => {
-                            gallery.masonryInstance.layout();
-                        }, 500);
-                    }
                 });
             });
         }
