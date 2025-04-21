@@ -2,6 +2,84 @@
  * Gallery Component Styles
  */
 
+/* Custom Gallery for art-section */
+.custom-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  width: 100%;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Row types */
+.row-vh .img-vertical {
+  width: 28%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.row-vh .img-horizontal-wide {
+  width: 72%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.row-3v .img-vertical {
+  width: 33.33%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.row-3vn .img-vertical-narrow {
+  width: 33.33%;
+  aspect-ratio: 2/5;
+  object-fit: cover;
+}
+
+.row-2vw .img-vertical-wide {
+  width: 49%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.custom-gallery img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fff;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.custom-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .custom-gallery {
+    max-width: 98vw;
+  }
+  .gallery-row {
+    gap: 12px;
+  }
+  .row-vh .img-vertical, .row-3v .img-vertical, .row-3vn .img-vertical-narrow, .row-2vw .img-vertical-wide {
+    width: 100%;
+  }
+  .gallery-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

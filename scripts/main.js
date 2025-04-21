@@ -32,6 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
  * Initialize navigation functionality
  */
 function initNavigation() {
+    // Hide nav on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 60) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+        lastScrollY = currentScrollY;
+    });
+
     const menuToggle = document.getElementById('menu-toggle');
     const navOverlay = document.getElementById('nav-overlay');
     const closeNav = document.getElementById('close-nav');

@@ -46,7 +46,7 @@
                     </ul>
                 </div>
             </div>
-        </div>c
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -80,17 +80,40 @@
             <div class="section-header">
                 <h2>Mes Oeuvres</h2>
             </div>
-            
-            <div x-data="galleryFilter" class="gallery-container">
-                <div class="gallery-filter">
-                    <button class="filter-btn active" data-filter="*" @click="setFilter('*')">All</button>
-                    <button class="filter-btn" data-filter="paintings" @click="setFilter('paintings')">Huile</button>
-                    <button class="filter-btn" data-filter="drawings" @click="setFilter('drawings')">Acrylique</button>
-                    <button class="filter-btn" data-filter="prints" @click="setFilter('prints')">Techniques mixtes</button>
+            <div class="custom-gallery">
+                <!-- Row 1: Vertical + Horizontal-Wide -->
+                <div class="gallery-row row-vh">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (9).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                    <img src="assets/images/gallery/vertical-wide/Peinture Laure (2).jpeg" alt="Oeuvre horizontale large" class="img-horizontal-wide">
                 </div>
-                
-                <div class="gallery" id="gallery">
-                    <!-- Gallery items will be loaded dynamically via JavaScript -->
+                <!-- Row 2: 3 Verticals -->
+                <div class="gallery-row row-3v">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (10).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (11).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (12).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                </div>
+                <!-- Row 3: 3 Vertical-Narrow -->
+                <div class="gallery-row row-3vn">
+                    <img src="assets/images/gallery/vertical-narrow/Peinture Laure (1).jpeg" alt="Oeuvre verticale étroite" class="img-vertical-narrow">
+                    <img src="assets/images/gallery/vertical-narrow/Peinture Laure (3).jpeg" alt="Oeuvre verticale étroite" class="img-vertical-narrow">
+                    <img src="assets/images/gallery/vertical-narrow/Peinture Laure (4).jpeg" alt="Oeuvre verticale étroite" class="img-vertical-narrow">
+                </div>
+                <!-- Row 4: 2 Vertical-Wide -->
+                <div class="gallery-row row-2vw">
+                    <img src="assets/images/gallery/vertical-wide/Peinture Laure (5).jpeg" alt="Oeuvre verticale large" class="img-vertical-wide">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (14).jpeg" alt="Oeuvre verticale large" class="img-vertical-wide">
+                </div>
+                <!-- Add more rows as needed following the same pattern -->
+                <!-- Row 5: 3 Verticals (unused: 14, 15, 16) -->
+                <div class="gallery-row row-3v">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (14).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (15).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (16).jpeg" alt="Oeuvre verticale" class="img-vertical">
+                </div>
+                <!-- Row 6: 2 Verticals (unused: 17, 6) -->
+                <div class="gallery-row row-2vw">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (17).jpeg" alt="Oeuvre verticale large" class="img-vertical-wide">
+                    <img src="assets/images/gallery/vertical/Peinture Laure (6).jpeg" alt="Oeuvre verticale large" class="img-vertical-wide">
                 </div>
             </div>
         </div>
@@ -161,14 +184,12 @@
         <div class="container">
             <div class="section-header">
                 <h2>Agenda</h2>
-                <p>Consultez les événements, expositions et actualités à venir concernant les œuvres de Claude Marthe.</p>
             </div>
-            
-            <div class="backstage-gallery">
-                <div class="backstage-item">
-                    <img src="assets/images/gallery/vertical/Peinture Laure (17).jpeg" alt="Backstage Photo 1">
-                </div>
-            </div>
+            <ul class="agenda-list">
+                <li>12 mai 2025 — Paris, Galerie Lumière</li>
+                <li>28 juin 2025 — Lyon, Espace Art Moderne</li>
+                <li>15 septembre 2025 — Bordeaux, Musée des Beaux-Arts</li>
+            </ul>
         </div>
     </section>
 
@@ -194,7 +215,7 @@
                 
                 <!-- Center Column: Logo -->
                 <div class="footer-logo">
-                    <img src="assets/images/logos/Logo Claude Marthe Bleu.svg" alt="Claude Marthe Logo">
+                    <img src="assets/images/logos/Logo Claude Marthe Noir.svg" alt="Claude Marthe Logo">
                 </div>
                 
                 <!-- Right Column: Connect + Contact Form -->
